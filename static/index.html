@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Multi-Agent Workflow Builder</title>
+  <link rel="stylesheet" href="/static/app.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z"/></svg>
+      </div>
+      <div>
+        <div class="kicker" data-i18n="kicker"></div>
+        <h1 data-i18n="title"></h1>
+      </div>
+    </div>
+    <div class="topbar-right">
+      <a class="legacy-link" href="/legacy" data-i18n="legacy_link"></a>
+      <div class="lang-switch" role="tablist" aria-label="language">
+        <button type="button" data-lang="ko" class="lang-btn">한국어</button>
+        <button type="button" data-lang="zh" class="lang-btn">中文</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="layout">
+    <!-- Left column: controls ------------------------------------------------ -->
+    <aside class="panel controls">
+      <section class="block">
+        <h2 data-i18n="controls_template"></h2>
+        <select id="template-select" class="select"></select>
+        <p id="template-description" class="muted small"></p>
+        <div class="meta-grid">
+          <div><span class="meta-label" data-i18n="meta_domain"></span><span id="template-domain"></span></div>
+          <div><span class="meta-label" data-i18n="meta_nodes"></span><span id="template-nodes-count"></span></div>
+          <div><span class="meta-label" data-i18n="meta_execution"></span><span id="template-execution">sequential</span></div>
+        </div>
+      </section>
+
+      <section class="block builder-workspace">
+        <div class="section-heading">
+          <h2 data-i18n="builder_title"></h2>
+          <span class="workspace-pill" data-i18n="builder_badge"></span>
+        </div>
+        <label class="field-label" for="builder-preset-select" data-i18n="builder_domain"></label>
+        <select id="builder-preset-select" class="select"></select>
+        <label class="field-label" for="builder-workflow-name" data-i18n="builder_name"></label>
+        <input id="builder-workflow-name" class="input" type="text" />
+        <div id="builder-node-list" class="builder-node-list"></div>
+        <button id="btn-compose-builder" class="btn btn-secondary" type="button">
+          <span data-i18n="builder_compose"></span>
+        </button>
+        <p id="builder-status" class="hint"></p>
+      </section>
+
+      <section class="block">
+        <h2 data-i18n="controls_user"></h2>
+        <select id="user-select" class="select"></select>
+      </section>
+
+      <section class="block">
+        <h2 data-i18n="controls_query"></h2>
+        <textarea id="query-input" class="textarea" rows="3"></textarea>
+      </section>
+
+      <div class="action-row">
+        <button id="btn-generate" class="btn btn-secondary" type="button">
+          <span data-i18n="action_generate"></span>
+        </button>
+        <button id="btn-run" class="btn btn-primary" type="button">
+          <span class="btn-label" data-i18n="action_run"></span>
+          <span class="btn-spinner" aria-hidden="true"></span>
+        </button>
+      </div>
+      <p class="hint" data-i18n="action_hint"></p>
+    </aside>
+
+    <!-- Right column: canvas + bottom result ------------------------------- -->
+    <section class="canvas-wrap">
+      <div class="canvas-header">
+        <h2 data-i18n="canvas_title"></h2>
+        <div class="status-pill" id="run-status">
+          <span class="dot"></span>
+          <span data-i18n="status_idle"></span>
+        </div>
+      </div>
+
+      <div class="canvas" id="canvas">
+        <svg class="canvas-edges" id="canvas-edges" aria-hidden="true"></svg>
+        <div class="nodes" id="nodes-container"></div>
+      </div>
+
+      <div class="canvas-legend" id="canvas-legend"></div>
+
+      <section class="block detail-panel" id="detail-panel">
+        <h2 data-i18n="detail_title"></h2>
+        <p class="muted small" data-i18n="detail_hint"></p>
+        <div id="detail-content" class="detail-content"></div>
+      </section>
+    </section>
+  </main>
+
+  <!-- Bottom: result area (hidden until first run) -------------------------- -->
+  <section class="result-area" id="result-area" hidden>
+    <div class="result-header">
+      <h2 data-i18n="result_title"></h2>
+      <div class="status-pill" id="result-status">
+        <span class="dot"></span>
+        <span id="result-status-text"></span>
+      </div>
+    </div>
+
+    <div class="result-grid" id="result-grid"></div>
+
+    <details class="result-section">
+      <summary><span data-i18n="result_trace"></span></summary>
+      <ol id="result-trace" class="trace-list"></ol>
+    </details>
+
+    <details class="result-section" open>
+      <summary><span data-i18n="result_answer"></span></summary>
+      <pre id="result-answer" class="answer-block"></pre>
+    </details>
+
+    <details class="result-section">
+      <summary><span data-i18n="result_json"></span></summary>
+      <div class="json-wrap">
+        <button type="button" class="copy-btn" id="copy-json" data-i18n="action_copy"></button>
+        <pre id="result-json" class="json-block"></pre>
+      </div>
+    </details>
+  </section>
+
+  <footer class="footer">
+    <span data-i18n="footer"></span>
+  </footer>
+
+  <script src="/static/i18n.js"></script>
+  <script src="/static/app.js"></script>
+</body>
+</html>

@@ -63,8 +63,8 @@ scripts/generate_final_workflow_ppt.js
 scripts/generate_final_workflow_ppt_zh.js
 scripts/beautify_translated_ppt.js
 base code for NE/
-builder_static.html
-index.html
+/builder_static.html
+/index.html
 tmp_pdf_pages/
 baseline_traditional.py
 demo.py

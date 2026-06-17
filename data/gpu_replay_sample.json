@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-06-03T18:57:28",
+  "model": "Qwen/Qwen2.5-1.5B-Instruct",
+  "dtype": "torch.bfloat16",
+  "gpu_before_or_after": {
+    "index": "0",
+    "name": "NVIDIA A100 80GB PCIe",
+    "memory_total_mb": 81920,
+    "memory_used_mb": 3529,
+    "gpu_utilization_percent": 76
+  },
+  "load_seconds": 38.5,
+  "infer_seconds": 2.958,
+  "input_tokens": 70,
+  "generated_tokens": 220,
+  "token_per_second": 74.385,
+  "peak_torch_allocated_mb": 2962.6,
+  "prompt": "I will travel to Qingdao next week. Recommend an outfit using weather, shopping history, and style preference. Answer in Korean with concise reasoning and a ranked list.",
+  "answer": "Qingdao has a subtropical humid climate, so it's important to choose clothing that is both comfortable and suitable for various activities. Here's a recommended outfit based on your preferences:\n\n1. **For Daily Activities**: Opt for light cotton shirts or blouses paired with shorts or skirts. This combination allows you to stay cool during the day while still being able to move freely.\n\n2. **For Shopping**: If you plan to visit any of the city's famous markets like the Qingdao International Market or the Qingdao Flower Market, consider wearing more formal attire such as dresses, suits, or casual pants and tops. These outfits can be easily mixed and matched depending on what you find at the market.\n\n3. **For Beach Days**: For those days when you might want to relax by the beach, wear swimsuits or lightweight summer dresses. Make sure they are water-resistant if you're planning to go swimming.\n\n4. **For Cultural Events**: If you have plans to attend cultural events or performances, dress up slightly more formally than usual. A nice blouse, tailored trousers, and heels would be"
+}

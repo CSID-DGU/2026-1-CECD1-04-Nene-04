@@ -23,13 +23,7 @@ class LocalLLMApiServerTest(unittest.TestCase):
                 enabled=True,
                 provider="replay",
                 model="Qwen/Qwen2.5-1.5B-Instruct",
-                replay_path=str(
-                    ROOT
-                    / "_local_artifacts"
-                    / "gpu_results"
-                    / "gpu_llm_results"
-                    / "single_Qwen_Qwen2.5-1.5B-Instruct_20260603_185728.json"
-                ),
+                replay_path=str(ROOT / "data" / "gpu_replay_sample.json"),
             )
         )
 
